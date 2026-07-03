@@ -1,0 +1,6 @@
+{
+  "name": "AIA Construction Estimating & Cost Tracking Workbook",
+  "description": "An interactive SaaS web application for standard AIA-compliant construction estimating, Cost Assemblies, actual cost tracking, and SmartSheet compatible exporting.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

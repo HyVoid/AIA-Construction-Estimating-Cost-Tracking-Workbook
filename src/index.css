@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+:root {
+  /* ── Core Brand Palette ── */
+  --color-primary: #051C2C;
+  --color-accent: #2251FF;
+  --color-bg: #F5F5F2;
+  --color-muted: #888888;
+  --color-body-text: #1A1A2E;
+
+  /* ── Semantic States (restricted usage for anomalies & alerts only) ── */
+  --color-positive: #00C853;
+  --color-negative: #D32F2F;
+
+  /* ── Surface Types ── */
+  --color-surface: #FFFFFF;
+  --color-input-bg: #FFFDE7;
+  --color-border: #E8E8E6;
+
+  /* ── Light Navigation ── */
+  --nav-bg: #FFFFFF;
+  --nav-border: #E8E8E6;
+  --nav-text: #051C2C;
+  --nav-text-inactive: rgba(5, 28, 44, 0.45);
+
+  /* ── Table Styling ── */
+  --table-header-bg: rgba(5, 28, 44, 0.04);
+  --table-header-sep: rgba(5, 28, 44, 0.12);
+
+  /* ── Accent Areas ── */
+  --insight-bg: rgba(34, 81, 255, 0.04);
+  --anomaly-bg: rgba(211, 47, 47, 0.04);
+
+  /* ── Fonts ── */
+  --font-heading: 'EB Garamond', Georgia, serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* ── Font Sizes & Line Heights ── */
+  --text-page-title: 28px;
+  --text-section: 18px;
+  --text-kpi-value: 36px;
+  --text-table-head: 13px;
+  --text-body: 13px;
+  --text-label: 11px;
+
+  /* ── Tracking & Letter Spacing ── */
+  --tracking-display: -0.03em;
+  --tracking-heading: -0.02em;
+  --tracking-label: 0.06em;
+
+  /* ── Spacing Guidelines ── */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+
+  /* ── Corner Radius System ── */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-pill: 100px;
+
+  /* ── Elevation & Shadows ── */
+  --shadow-sm: 0 1px 2px rgba(5, 28, 44, 0.04), 0 2px 8px rgba(5, 28, 44, 0.06);
+  --shadow-md: 0 2px 4px rgba(5, 28, 44, 0.04), 0 8px 24px rgba(5, 28, 44, 0.08), 0 1px 0px rgba(255,255,255,0.6) inset;
+  --shadow-lg: 0 4px 8px rgba(5, 28, 44, 0.06), 0 16px 48px rgba(5, 28, 44, 0.14), 0 1px 0px rgba(255,255,255,0.5) inset;
+  --shadow-nav: 0 1px 3px rgba(5, 28, 44, 0.06), 0 1px 0px rgba(5, 28, 44, 0.08);
+
+  /* ── Transitions ── */
+  --ease-standard: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1.0);
+  --ease-decel: cubic-bezier(0.0, 0.0, 0.2, 1.0);
+  --ease-accel: cubic-bezier(0.4, 0.0, 1.0, 1.0);
+  --dur-fast: 150ms;
+  --dur-normal: 250ms;
+  --dur-slow: 400ms;
+  --nav-height: 56px;
+}
+
+/* ── Global Styles ── */
+body {
+  background: var(--color-bg);
+  color: var(--color-body-text);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── Typography Utility Classes ── */
+.font-display {
+  font-family: var(--font-heading);
+  letter-spacing: var(--tracking-display);
+}
+
+.font-heading-title {
+  font-family: var(--font-heading);
+  letter-spacing: var(--tracking-heading);
+}
+
+.label-uppercase {
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+  color: var(--color-primary);
+}
+
+.font-mono-val {
+  font-family: var(--font-mono);
+}
+
+/* ── Theme Specific Components ── */
+.nav-sticky {
+  position: sticky;
+  top: 0;
+  height: var(--nav-height);
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+  box-shadow: var(--shadow-nav);
+  z-index: 100;
+}
+
+.page-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-xl);
+}
+
+.kpi-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--dur-normal) var(--ease-spring), box-shadow var(--dur-normal) var(--ease-standard);
+}
+
+.kpi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.standard-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--dur-normal) var(--ease-spring), box-shadow var(--dur-normal) var(--ease-standard);
+}
+
+.standard-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ── Inputs ── */
+.input-editable {
+  background-color: var(--color-input-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  font-size: 13px;
+  color: var(--color-body-text);
+  transition: border-color var(--dur-fast) var(--ease-standard), box-shadow var(--dur-fast) var(--ease-standard);
+}
+
+.input-editable:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(34, 81, 255, 0.15);
+}
+
+/* ── Interactive Exposure / Action Matrix Cells ── */
+.cell-interactive {
+  transition: transform var(--dur-fast) var(--ease-standard), filter var(--dur-fast) var(--ease-standard);
+  cursor: pointer;
+}
+
+.cell-interactive:hover {
+  transform: scale(1.04);
+  filter: brightness(0.96);
+}
+
+/* ── Insights & Anomaly blocks ── */
+.insight-block {
+  background: var(--insight-bg);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: var(--space-md);
+}
+
+.anomaly-block {
+  background: var(--anomaly-bg);
+  border-left: 3px solid var(--color-negative);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: var(--space-md);
+}
+
+.anomaly-row {
+  background-color: var(--anomaly-bg) !important;
+}
+
+.text-anomaly {
+  color: var(--color-negative);
+  font-weight: 500;
+}
+
+/* ── Tab Transition ── */
+.tab-fade-up {
+  animation: fadeUp 220ms var(--ease-decel) both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom Data Scrollbars & Form Elements */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.02);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(5,28,44,0.15);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(5,28,44,0.3);
+}
