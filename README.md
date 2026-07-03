@@ -8,7 +8,7 @@
 
 > ## **No signup. No installation. Free.**
 >
-> 🌐 **Open in Browser:** *HTML Live Version (Coming Soon)*
+> 🌐 **Open in Browser:** [*HTML Live Version*](https://hyvoid.github.io/AIA-Construction-Estimating-Cost-Tracking-Workbook/)
 >
 > 📥 **Download Excel:** *GitHub Release / Gumroad Download (Coming Soon)*
 
